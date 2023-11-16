@@ -1,4 +1,5 @@
-import ZioEcosystemProjectPlugin.autoImport._
+import ZioEcosystemProjectPlugin.autoImport.*
+import ZioEcosystemProjectPlugin.autoImport.ZIOSeries.Series2X
 
 ThisBuild / version       := "0.10.0"
 ThisBuild / versionScheme := Some("early-semver")
@@ -266,6 +267,20 @@ lazy val solrZio2 =
       libraryDependencies ++= Seq(
         "com.dimafeng" %% "testcontainers-scala-solr" % V.testcontainersScalaVersion,
         "dev.zio"      %% "zio-http"                  % V.zioHttpVersion % Test
+      )
+    )
+
+lazy val neo4jZio2 =
+  project
+    .in(file("modules/neo4j-zio-2.0"))
+    .settings(
+      zioSeries := Series2X,
+      testcontainersScalaSettings,
+      name := "zio-2.0-testcontainers-neo4j",
+      libraryDependencies ++= Seq(
+        "com.dimafeng"       %% "testcontainers-scala-neo4j" % V.testcontainersScalaVersion,
+        "io.github.neotypes" %% "neotypes-zio"               % V.neotypes,
+        "org.neo4j.driver"    % "neo4j-java-driver"          % V.neo4j
       )
     )
 

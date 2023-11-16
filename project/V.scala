@@ -21,6 +21,8 @@ object V {
   val cassandraMigrationsVersion = "2.5.0_v4"
   val liquibaseVersion           = "4.13.0"
   val nettyVersion               = "4.1.79.Final"
+  val neotypes                   = "1.0.0-M3"
+  val neo4j                      = "5.14.0"
 
   private val versions: Map[String, String] = {
     import org.snakeyaml.engine.v2.api.{Load, LoadSettings}
